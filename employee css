@@ -1,0 +1,98 @@
+.heading {
+    position: static;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: visible;
+    margin-top: 196px;
+    margin-bottom: 27px;
+    margin-left: -20px;
+    clear: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #b8b8b8;
+    font-size: 40px;
+    line-height: 40px;
+    font-weight: 700;
+    text-align: center;
+    white-space: normal;
+    background-clip: border-box;
+    -webkit-text-fill-color: inherit;
+    -o-object-fit: fill;
+    object-fit: fill;
+  }
+  
+  .heading-2 {
+    position: static;
+    margin-top: 26px;
+    margin-bottom: 11px;
+    margin-left: -6px;
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    color: #b8b8b8;
+    font-size: 40px;
+    line-height: 40px;
+    font-weight: 700;
+    text-align: center;
+    background-clip: border-box;
+    -webkit-text-fill-color: inherit;
+  }
+  
+  .button {
+    overflow: visible;
+    padding: 10px 41px;
+    float: left;
+    clear: right;
+    background-color: #38ec65;
+    font-weight: 400;
+    text-align: right;
+    text-decoration: underline;
+  }
+  
+  .button-2 {
+    margin-top: 30px;
+    margin-left: 875px;
+    padding: 20px 40px;
+    background-color: #00702f;
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    color: #000;
+    font-weight: 700;
+    text-align: center;
+  }
+  
+  .heading-3 {
+    margin-top: 50px;
+    margin-left: 100px;
+    color: #b8b8b8;
+  }
+  
+  .body {
+    background-color: #030000;
+  }
+  
+  .heading-4 {
+    margin-top: 30px;
+    margin-left: 875px;
+    color: #b8b8b8;
+    font-size: 20px;
+    line-height: 20px;
+  }
+  
+  .heading-5 {
+    margin-top: -35px;
+    margin-left: 940px;
+    color: #b8b8b8;
+    font-size: 20px;
+    line-height: 30px;
+  }
