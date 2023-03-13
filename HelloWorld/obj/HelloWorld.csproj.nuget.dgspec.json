@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/rob-quigs/Documents/CSI3450/HelloWorld/HelloWorld.csproj": {}
+    "/home/rob-quigs/Documents/CSI3450/timecard/CSI3450/HelloWorld/HelloWorld.csproj": {}
   },
   "projects": {
-    "/home/rob-quigs/Documents/CSI3450/HelloWorld/HelloWorld.csproj": {
+    "/home/rob-quigs/Documents/CSI3450/timecard/CSI3450/HelloWorld/HelloWorld.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/rob-quigs/Documents/CSI3450/HelloWorld/HelloWorld.csproj",
+        "projectUniqueName": "/home/rob-quigs/Documents/CSI3450/timecard/CSI3450/HelloWorld/HelloWorld.csproj",
         "projectName": "HelloWorld",
-        "projectPath": "/home/rob-quigs/Documents/CSI3450/HelloWorld/HelloWorld.csproj",
+        "projectPath": "/home/rob-quigs/Documents/CSI3450/timecard/CSI3450/HelloWorld/HelloWorld.csproj",
         "packagesPath": "/home/rob-quigs/.nuget/packages/",
-        "outputPath": "/home/rob-quigs/Documents/CSI3450/HelloWorld/obj/",
+        "outputPath": "/home/rob-quigs/Documents/CSI3450/timecard/CSI3450/HelloWorld/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/rob-quigs/.nuget/NuGet/NuGet.Config"
@@ -37,6 +37,28 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "MySql.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "MySqlConnector": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
