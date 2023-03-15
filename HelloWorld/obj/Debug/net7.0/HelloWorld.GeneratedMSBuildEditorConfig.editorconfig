@@ -16,12 +16,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /home/rob-quigs/Documents/CSI3450/timecard/CSI3450/HelloWorld
 build_property._RazorSourceGeneratorDebug = 
 
+[/home/rob-quigs/Documents/CSI3450/timecard/CSI3450/HelloWorld/Pages/Employee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRW1wbG95ZWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/home/rob-quigs/Documents/CSI3450/timecard/CSI3450/HelloWorld/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/home/rob-quigs/Documents/CSI3450/timecard/CSI3450/HelloWorld/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/rob-quigs/Documents/CSI3450/timecard/CSI3450/HelloWorld/Pages/Manager.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTWFuYWdlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/home/rob-quigs/Documents/CSI3450/timecard/CSI3450/HelloWorld/Pages/Privacy.cshtml]
