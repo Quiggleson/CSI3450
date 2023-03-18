@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets/HelloWorld.bundle.scp.css"
     },
     {
+      "Id": "/home/rob-quigs/Documents/CSI3450/timecard/CSI3450/HelloWorld/wwwroot/css/employee.css",
+      "PackagePath": "staticwebassets/css/employee.css"
+    },
+    {
+      "Id": "/home/rob-quigs/Documents/CSI3450/timecard/CSI3450/HelloWorld/wwwroot/css/manager.css",
+      "PackagePath": "staticwebassets/css/manager.css"
+    },
+    {
       "Id": "/home/rob-quigs/Documents/CSI3450/timecard/CSI3450/HelloWorld/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },
