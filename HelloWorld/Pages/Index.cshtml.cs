@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using HelloWorld.Data;
+using HelloWorld.Models;
 
 namespace HelloWorld.Pages;
 
@@ -15,17 +16,17 @@ public class IndexModel : PageModel
         _logger = logger;
         _context = context;
     }
-    public IList<Timecard> card {get; set; }
+    public IList<TimeRecord> card {get; set; }
 
     public async Task OnGetAsync()
     {
-        card = await _context.Timecard
+        card = await _context.TimeRecord
             //.Include(_ => _.timeId)
             //.Include(_ => _.timeIn)
             //.AsNoTracking()
             .ToListAsync();
         foreach (var t in card) {
-            Console.WriteLine(t.empId);
+            Console.WriteLine(t.eId);
             Console.WriteLine(t.timeId);
             Console.WriteLine(t.timeIn);
             Console.WriteLine(t.timeOut);
