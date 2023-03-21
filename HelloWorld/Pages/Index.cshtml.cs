@@ -1,35 +1,32 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using HelloWorld.Data;
 using HelloWorld.Models;
 
-namespace HelloWorld.Pages;
-
-public class IndexModel : PageModel
+namespace HelloWorld.Pages
 {
-    private readonly ILogger<IndexModel> _logger;
-    private readonly TimecardContext _context;
-
-    public IndexModel(ILogger<IndexModel> logger, TimecardContext context)
+    public class IndexModel : PageModel
     {
-        _logger = logger;
-        _context = context;
-    }
-    public IList<TimeRecord> card {get; set; }
+        private readonly HelloWorld.Data.TimecardContext _context;
 
-    public async Task OnGetAsync()
-    {
-        card = await _context.TimeRecord
-            //.Include(_ => _.timeId)
-            //.Include(_ => _.timeIn)
-            //.AsNoTracking()
-            .ToListAsync();
-        foreach (var t in card) {
-            Console.WriteLine(t.eId);
-            Console.WriteLine(t.timeId);
-            Console.WriteLine(t.timeIn);
-            Console.WriteLine(t.timeOut);
+        public IndexModel(HelloWorld.Data.TimecardContext context)
+        {
+            _context = context;
+        }
+
+        public IList<tester> tester { get;set; } = default!;
+
+        public async Task OnGetAsync()
+        {            
+            if (_context.tester != null)
+            {
+                tester = await _context.tester.ToListAsync();
+            }
         }
     }
 }

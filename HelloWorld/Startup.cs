@@ -2,6 +2,9 @@ using HelloWorld.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+using Pomelo.EntityFrameworkCore.MySql.Storage;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -23,10 +26,20 @@ namespace HelloWorld
         {
             services.AddRazorPages();
 
-            services.AddDbContext<TimecardContext>(options =>
-               options.UseMySQL(Configuration.GetConnectionString("Default")));
+            services.AddDbContext<TimecardContext>(
+    dbContextOptions => dbContextOptions
+        .UseMySql(Configuration.GetConnectionString("Default"), ServerVersion.AutoDetect(Configuration.GetConnectionString("Default")))
+        .LogTo(Console.WriteLine, LogLevel.Information)
+        .EnableSensitiveDataLogging()
+        .EnableDetailedErrors()
+);
 
-            //services.AddDatabaseDeveloperPageExceptionFilter();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.Cookie.Name = ".Timecard.Session";
+                options.Cookie.IsEssential = true;
+            });
         }
         #endregion
 
@@ -35,7 +48,6 @@ namespace HelloWorld
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                //app.UseMigrationsEndPoint();
             }
             else
             {
@@ -49,6 +61,8 @@ namespace HelloWorld
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
