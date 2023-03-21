@@ -16,6 +16,22 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /home/rob-quigs/Documents/CSI3450/timecard/CSI3450/HelloWorld
 build_property._RazorSourceGeneratorDebug = 
 
+[/home/rob-quigs/Documents/CSI3450/timecard/CSI3450/HelloWorld/Pages/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/rob-quigs/Documents/CSI3450/timecard/CSI3450/HelloWorld/Pages/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/rob-quigs/Documents/CSI3450/timecard/CSI3450/HelloWorld/Pages/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/rob-quigs/Documents/CSI3450/timecard/CSI3450/HelloWorld/Pages/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/home/rob-quigs/Documents/CSI3450/timecard/CSI3450/HelloWorld/Pages/Employee2.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRW1wbG95ZWUyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -42,6 +58,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/home/rob-quigs/Documents/CSI3450/timecard/CSI3450/HelloWorld/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/rob-quigs/Documents/CSI3450/timecard/CSI3450/HelloWorld/Pages/TimeEntry.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVGltZUVudHJ5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/home/rob-quigs/Documents/CSI3450/timecard/CSI3450/HelloWorld/Pages/_ViewImports.cshtml]

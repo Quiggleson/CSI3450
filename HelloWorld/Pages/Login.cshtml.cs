@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Http;
 using HelloWorld.Data;
 using HelloWorld.Models;
 
@@ -10,11 +11,12 @@ namespace HelloWorld.Pages;
 public class LoginModel : PageModel
 {
     private readonly TimecardContext _context;
-    public LoginModel(TimecardContext context) {
+    public LoginModel(TimecardContext context)
+    {
         _context = context;
         Console.Write("context exists");
     }
-    
+
     [BindProperty]
     public string Email { get; set; }
 
@@ -30,13 +32,16 @@ public class LoginModel : PageModel
     {
         // IList to protect against accounts with duplicate emails
         IList<Employee> employee = await _context.Employee
-        .Where(_ => _.eEmail.Equals(Email))
-        .ToListAsync();
+            .Where(_ => _.eEmail.Equals(Email))
+            .ToListAsync();
+
         // Authenticate the user
         if (Password.Equals(employee[0].ePassword))
         {
-            // Authentication successful, redirect to home page
-            return RedirectToPage("Index");
+            HttpContext.Session.SetInt32("eId", employee[0].eId);
+            HttpContext.Session.SetString("eName", employee[0].eName);
+            // Redirect to the home page
+            return RedirectToPage("timeentry");
         }
         else
         {
@@ -45,4 +50,5 @@ public class LoginModel : PageModel
             return Page();
         }
     }
+
 }
