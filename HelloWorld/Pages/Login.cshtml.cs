@@ -36,6 +36,8 @@ public class LoginModel : PageModel
             .ToListAsync();
 
         // Authenticate the user
+        if (employee.Count == 0)
+            return RedirectToPage();
         if (Password.Equals(employee[0].ePassword))
         {
             HttpContext.Session.SetInt32("eId", employee[0].eId);
