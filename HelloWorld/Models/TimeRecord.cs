@@ -1,14 +1,17 @@
-using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
 
 namespace HelloWorld.Models;
-public class TimeRecord
-{
-   
-    [Key]
-    public int timeId { get; set; }
-    public DateTime timeIn { get; set; }
-    public DateTime? timeOut { get; set; }
-    public int eId { get; set; }
 
-    
+public partial class TimeRecord
+{
+    public DateTime TimeIn { get; set; }
+
+    public DateTime? TimeOut { get; set; }
+
+    public int EId { get; set; }
+
+    public sbyte? IsStarred { get; set; }
+
+    public virtual Employee EIdNavigation { get; set; } = null!;
 }

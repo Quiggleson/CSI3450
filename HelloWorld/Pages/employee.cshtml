@@ -1,0 +1,68 @@
+@page "/{employeeid:int}"
+@model EmployeeModel
+@{
+    ViewData["Title"] = "Employee Info";
+}
+@if (TempData.ContainsKey("Message"))
+{
+    <div class="alert alert-warning">@TempData["Message"]</div>
+}
+<h2>Previous Time Records</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Time In</th>
+            <th>Time Out</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var record in Model.TimeRecords)
+        {
+            <tr>
+                @if ((string)TempData["EditableRecord"] == record.TimeIn.ToString())
+                {
+                    <form method="post">
+                        <td>
+                            <div class="form-group">
+                                <input type="datetime-local" name="NewTimeIn" class="form-control"
+                                    value="@record.TimeIn.ToString("yyyy-MM-ddTHH:mm")">
+                            </div>
+                        <button type="submit" name="SubmitEdit" value="1" class="btn btn-primary">Submit</button>
+                        <button type="submit" name="CancelEdit" value="1" class="btn btn-secondary">Cancel</button>
+                        <input type="hidden" name="OldTimeIn" value="@record.TimeIn.ToString()">
+                        <input type="hidden" name="EmployeeId" value="@record.EId">
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <input type="datetime-local" name="NewTimeOut" class="form-control"
+                                    value="@record.TimeOut?.ToString("yyyy-MM-ddTHH:mm")">
+                            </div>
+                        </td>
+                        
+                    </form>
+                }
+                else
+                {
+                    <td>@record.TimeIn.ToString("MM/dd/yyyy h:mm tt")</td>
+                    <td>@(record.TimeOut.HasValue ? record.TimeOut.Value.ToString("MM/dd/yyyy h:mm tt") : "-")</td>
+                }
+
+                <td>
+                    @if (record.IsStarred == 1)
+                    {
+                        <button type="submit" name="UnStarRecord" class="btn btn-warning" id="unstar-btn">Flagged</button>
+                    }
+                    @if ((string)TempData["EditableRecord"] != record.TimeIn.ToString())
+                    {
+                        <form method="post">
+                            <button type="submit" name="EditRecord" class="btn btn-primary" id="edit-btn">Edit</button>
+                            <input type="hidden" name="EditableRecord" value="@record.TimeIn.ToString()">
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

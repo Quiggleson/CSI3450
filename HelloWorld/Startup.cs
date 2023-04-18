@@ -1,4 +1,4 @@
-using HelloWorld.Data;
+/*using HelloWorld.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -72,3 +72,4 @@ namespace HelloWorld
         #endregion
     }
 }
+*/

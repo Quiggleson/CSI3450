@@ -1,32 +1,29 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using HelloWorld.Data;
-using HelloWorld.Models;
 
 namespace HelloWorld.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly HelloWorld.Data.TimecardContext _context;
-
-        public IndexModel(HelloWorld.Data.TimecardContext context)
+        public IndexModel()
         {
-            _context = context;
+
         }
 
-        public IList<tester> tester { get;set; } = default!;
-
-        public async Task OnGetAsync()
-        {            
-            if (_context.tester != null)
-            {
-                tester = await _context.tester.ToListAsync();
+        public IActionResult OnGet()
+        {
+            if (TempData.ContainsKey("ETitle") && (string) TempData.Peek("ETitle") == "Manager"){
+                return RedirectToPage("/manage");
+            } else if (TempData.ContainsKey("ETitle") && (string) TempData.Peek("ETitle") == "Employee"){
+                return RedirectToPage("/timeentry");
             }
+            if (!TempData.ContainsKey("EId"))
+            {
+                TempData["Message"] = "You have to login before you can navigate the site.";
+                return RedirectToPage("/login");
+            }
+            return Page();
         }
+
     }
 }

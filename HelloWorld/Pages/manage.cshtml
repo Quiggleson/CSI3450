@@ -1,0 +1,85 @@
+@page
+@model ManageModel
+@{
+    ViewData["Title"] = "Manage";
+}
+
+<h1>Manage Employees</h1>
+
+<h2>Employees with a Starred Time Record in the Last Two Weeks</h2>
+
+@if (Model.StarredEmployees.Count == 0)
+{
+    <p>No employees have a starred time record in the last two weeks.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th colspan="2">Employee Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model.StarredEmployees)
+            {
+                <tr>
+                    <td>@employee.EFirstName @employee.ELastName</td>
+                    <td><a href="/@employee.EId">Timecard History</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<h2>Currently Working Employees</h2>
+
+@if (Model.WorkingEmployees.Count == 0)
+{
+    <p>No employees are currently working.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th colspan="2">Employee Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model.WorkingEmployees)
+            {
+                <tr>
+                    <td>@employee.EFirstName @employee.ELastName</td>
+                    <td><a href="/@employee.EId">Timecard History</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<h2>Employees with Time Records in the Last Two Weeks</h2>
+
+@if (Model.AllEmployees.Count == 0)
+{
+    <p>No employees have time records in the last two weeks.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th colspan="2">Employee Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model.AllEmployees)
+            {
+                <tr>
+                    <td>@employee.EFirstName @employee.ELastName</td>
+                    <td><a href="/@employee.EId">Timecard History</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
