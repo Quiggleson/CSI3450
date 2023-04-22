@@ -1,0 +1,9 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+@if (TempData.ContainsKey("Message"))
+{
+    <div class="alert alert-warning">@TempData["Message"]</div>
+}

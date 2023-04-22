@@ -1,0 +1,77 @@
+@page
+@model TimeentryModel
+@{
+    ViewData["Title"] = "TimeEntry";
+}
+
+<h1>Time Entry</h1>
+
+<p>Welcome, @TempData.Peek("EFirstName") @TempData.Peek("ELastName")!</p>
+
+@if (TempData.ContainsKey("Warning"))
+{
+    <div class="alert alert-warning">@TempData["Warning"]</div>
+}
+@if (TempData.ContainsKey("Success"))
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+@if (Model.ErrorMessage != null)
+{
+    <div class="alert alert-danger">@Model.ErrorMessage</div>
+}
+
+
+<h2>Previous Time Records</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Time In</th>
+            <th>Time Out</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var record in Model.TimeRecords)
+        {
+            <tr>
+                <td>@record.TimeIn.ToString("MM/dd/yyyy h:mm tt")</td>
+                <td>@(record.TimeOut.HasValue ? record.TimeOut.Value.ToString("MM/dd/yyyy h:mm tt") : "-")</td>
+                <td>
+                    @if (record.IsStarred == 1)
+                    {
+                        <form method="post">
+                            <input type="hidden" name="timeRecordId" value="@record.TimeIn" />
+                            <button type="submit" name="UnStarRecord" class="btn btn-warning" id="unstar-btn">Unflag</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <form method="post">
+                            <input type="hidden" name="timeRecordId" value="@record.TimeIn" />
+                            <button type="submit" name="starRecord" class="btn btn-primary star-btn" id="star-btn">Flag</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<div class="row mb-3">
+    <form method="post">
+        <button type="submit" name="clockIn" class="btn btn-primary">Clock In</button>
+        <button type="submit" name="clockOut" class="btn btn-primary">Clock Out</button>
+    </form>
+</div>
+
+<script>
+    var starWidth = document.getElementById("unstar-btn").offsetWidth;
+
+    var starButtons = document.getElementsByClassName("star-btn");
+    for (var i = 0; i < starButtons.length; i++) {
+        starButtons[i].style.width = starWidth + "px";
+    }
+</script>
